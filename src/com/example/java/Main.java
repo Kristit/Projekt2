@@ -43,12 +43,15 @@ public class Main extends Application {
                 vbox.getChildren().addAll(title, subjectName, credits,saveButton);
 
                 //selleks,et see save nupp midagi teeks anna kasu .set.OnAction
-                saveButton.setOnAction(event->{
-                        String name= subjectName.getText();// votan textifildist name teksti sisse!
-                    System.out.println(name); //kasutan seda ekranail kontrollimiseks, et ka snupp tootab
+                saveButton.setOnAction(event-> {
+                            String name = subjectName.getText();// votan textifildist name teksti sisse!
+                            System.out.println(name); //kasutan seda ekranail kontrollimiseks, et ka snupp tootab
 
-                String ap= credits.getText();
-                    private TextField ap;
+                            String ap = credits.getText();
+                    int apInt= Integer.parseInt(ap);
+
+                        });
+                    /* private TextField ap;
                     ap.textProperty().addListener(new ChangeListener<String>() {
                         @Override
                         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -59,11 +62,11 @@ public class Main extends Application {
                         }
                     });
 
+                    */
 
 
-                    System.out.println(ap);
 
-                });
+
 
             }
         }
