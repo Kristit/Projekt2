@@ -17,59 +17,56 @@ import java.util.function.UnaryOperator;
 
 public class Main extends Application {
 
-            @Override
-            public void start(Stage primaryStage) throws Exception {//JavaFX start meetod
+    // new Tasks(); kaivitan Tasks akna
+    // new CourseName(); kaivitan Coursename akna
 
-                VBox vbox = new VBox();// Lood uue layouti (Vboxi)
-                Scene subject = new Scene(vbox, 400, 500);//Teen scene "Subject" ja seon ta VBoxiga
+    @Override
+    public void start(Stage primaryStage) throws Exception {//JavaFX start meetod
 
-                //hetkel pole Scene "Subject" seotud primaryStagiga. Selleks annan kasu setScene
-                primaryStage.setScene(subject);// utled et seod Subject tseeni aknaga
-                primaryStage.show();// avab akna
+        // new Tasks(); kaivitan Tasks akna
 
 
-                //selleks, et Scene "Subject" midagi ka paistaks pean sisse panema teksti, nupud jne.
+        VBox vbox = new VBox();// Lood uue layouti (Vboxi)
+        Scene subject = new Scene(vbox, 200, 200);//Teen scene "Subject" ja seon ta VBoxiga
 
-                Label title = new Label("Welcome to Task/Time managment calculator!");
+        //hetkel pole Scene "Subject" seotud primaryStagiga. Selleks annan kasu setScene
+        primaryStage.setScene(subject);// utled et seod Subject tseeni aknaga
+        primaryStage.show();// avab akna
 
-                TextField subjectName = new TextField(); //lisad teksti valja
-                subjectName.setPromptText("Write your subject name:"); //et see tekstivalja solev tekst kaoks
-                TextField credits = new TextField();
-                credits.setPromptText("How many credits you have?");
-                Button saveButton = new Button("Save");
 
-                // hetkel pole title,subjectName, jen. Vboxiga seotud. Selleks anan kasu get.Children().add
+        //selleks, et Scene "Subject" midagi ka paistaks pean sisse panema teksti, nupud jne.
 
-                vbox.getChildren().addAll(title, subjectName, credits,saveButton);
+        Label title = new Label("Welcome to Task/Time managment calculator!");
 
-                //selleks,et see save nupp midagi teeks anna kasu .set.OnAction
-                saveButton.setOnAction(event-> {
-                            String name = subjectName.getText();// votan textifildist name teksti sisse!
-                            System.out.println(name); //kasutan seda ekranail kontrollimiseks, et ka snupp tootab
+        TextField subjectName = new TextField(); //lisad teksti valja
+        subjectName.setPromptText("Write your subject name:"); //et see tekstivalja solev tekst kaoks
+        TextField credits = new TextField();
+        credits.setPromptText("How many credits you have?");
 
-                            String ap = credits.getText();
-                    int apInt= Integer.parseInt(ap);
+        TextField taskNumber = new TextField();
+        taskNumber.setPromptText("How many tasks you have?");
+        Button saveButton = new Button("Save");
 
-                        });
-                    /* private TextField ap;
-                    ap.textProperty().addListener(new ChangeListener<String>() {
-                        @Override
-                        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                            if(!newValue.matches("[0-9]*")){
-                                ap.setText(oldValue);
-                            }
+        // hetkel pole title,subjectName, jen. Vboxiga seotud. Selleks anan kasu get.Children().add
 
-                        }
-                    });
+        vbox.getChildren().addAll(title, subjectName, credits, taskNumber, saveButton);
 
-                    */
+        //selleks,et see save nupp midagi teeks anna kasu .set.OnAction
+        saveButton.setOnAction(event -> {
+            String courseName = subjectName.getText();// votan textifildist name teksti sisse!
+            String ap = credits.getText();
+
+
+            System.out.println(courseName); //kasutan seda ekranail kontrollimiseks, et ka snupp tootab
+            System.out.println(ap);
 
 
 
+        });
 
+    }
+}
 
-            }
-        }
 
 
 
