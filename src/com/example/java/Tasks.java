@@ -1,6 +1,5 @@
 package com.example.java;
 
-import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,58 +7,78 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 /**
  * Created by kristitammet on 11/11/2016.
  */
     public class Tasks {
-    TextField toDoTask;
+
+    private String courseName;
+    private int ap;
+    ArrayList <TextField> toDoTasks = new ArrayList<>();
     Button sumbitButton;
     Button addButton;
     Button clearButton;
     Stage stage= new Stage();
-    int insertedTaskNumber;
-        TextField toDoTask;
+    int insertedTaskNumber=0;
+    VBox vbox= new VBox();
 
 
-    public void Tasks() {// see peaks olema konstruktor
+    /* Vaata public Tasks(String courseName, int ap)  kuidas Sa toid klassisit ule ja miks panid sinna fildideks
+    */
+
+    public Tasks(String courseName, int ap) {// see peaks olema konstruktor (raagi see void ja kontruktor ja meetod (rida 33)?
+        this.courseName = courseName;
+        this.ap = ap;
         startTaskStage();
-        addSql();
+
 
     }
 
+    private TextField createNewField(){
+        TextField newNeedToDoTask = new TextField();
+        newNeedToDoTask.setPromptText("Write here your task name");
+        insertedTaskNumber++;//
+        vbox.getChildren().add(insertedTaskNumber,newNeedToDoTask);//Vboxis on elemendid 1 vorra nihkes vorreldes toDoTaskiga
+        toDoTasks.add(newNeedToDoTask);// votab sisse newNeedToDoTaski elemendi ja lsiab ArrayListi sisse
+        return newNeedToDoTask;//
+    }
 
-        private void startTaskStage() { //startStage meetod
+    private void startTaskStage() { //startStage meetod
 
-        VBox vbox= new VBox();
         Scene scene= new Scene(vbox, 400,400);
 
 
-        Label total= new Label ("List your tasks ");
-        TextField needToDoTask= new TextField();
-        needToDoTask.setPromptText("Write here your task name");
-
-        Button addButton = new Button("Add task");
-        Button sumbitButton = new Button("Save");
-        Button clearButton= new Button ("Clear");
+        Label total= new Label ("List your tasks ");// 0 positsioonil
+        vbox.getChildren().add(total);
+        createNewField();
+        addButton = new Button("Add task");
+        sumbitButton = new Button("Save");
+        clearButton= new Button ("Clear");
 
         addButton.setOnAction(event -> {
-            TextField newNeedToDoTask = new TextField();
-            newNeedToDoTask.setPromptText("Write here your task name");
+            createNewField();// meetodi kutse vaata TextField meetodit
         });
 
         clearButton.setOnAction(event -> {
-            needToDoTask.clear();
+            vbox.getChildren().remove(insertedTaskNumber);
+            insertedTaskNumber--;
+            toDoTasks.remove(insertedTaskNumber);
         });
 
         sumbitButton.setOnAction(event -> {
-            String taskName = needToDoTask.getText();// votan textifildist name teksti sisse!
-            System.out.println(taskName);
+            for (TextField toDoTask:toDoTasks){// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
+                System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
+            }
         });
-
-        vbox.getChildren().addAll(total, needToDoTask, addButton, sumbitButton, clearButton);
 
         stage.setScene(scene);// utled et seod Subject tseeni aknaga
         stage.show();//avab akne
+
+        vbox.getChildren().addAll(addButton, sumbitButton, clearButton);
+
+
 
 
     }
