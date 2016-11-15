@@ -28,21 +28,22 @@ public class TaskLine extends HBox {
         hoursField.setPromptText("How many hours you need for this task?");
         removeButton = new Button("Clear");
 
-        hBox.getChildren().add(toDoTasks.size() + 1, newNeedToDoTask, toDoHours.size() + 1, newHoursField);
+        hBox.getChildren().add(toDoTasks.size() + 1, newNeedToDoTask, toDoHours.size() + 1, newHoursField, removeButton);
         toDoTasks.add(newNeedToDoTask);// votab sisse newNeedToDoTaski elemendi ja lsiab ArrayListi sisse
         toDoHours.add(newHoursField);
         return newNeedToDoTask;
         return newHoursField;
 
+        removeButton.setOnAction(event -> {
+            hBox.getChildren().remove(toDoTasks.size(), toDoHours.size(), removeButton);
+            toDoTasks.remove(toDoTasks.size() - 1);
+            toDoHours.remove(toDoHours.size() - 1);
+        });
+
 
     }
 
 
-     removeButton.setOnAction(event -> {
-        hBox.getChildren().remove(toDoTasks.size(), toDoHours.size());
-        toDoTasks.remove(toDoTasks.size() - 1);
-        toDoHours.remove(toDoHours.size() - 1);
-    });
 
 
 }

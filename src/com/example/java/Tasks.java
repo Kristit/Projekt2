@@ -33,20 +33,19 @@ public class Tasks {
     }
 
 
-
     private void startTaskStage() { //startStage meetod
 
         Scene scene = new Scene(hBox);
 
         Label total = new Label("List your tasks and working hours!");
         hBox.getChildren().add(total);
-        TextField toDoTask =new TextField;
-        TextField taskHours= new TextField;
+        TextField toDoTask = new TextField;
+        TextField taskHours = new TextField;
         new TaskLine();
         addButton = new Button("Add task");
         sumbitButton = new Button("Save");
         ArrayList<TextField> toDoTasks = new ArrayList<>();
-        ArrayList<TextField> toDoHours= new ArrayList<>();
+        ArrayList<TextField> toDoHours = new ArrayList<>();
 
         addButton.setOnAction(event -> {
             TaskLine();// meetodi kutse vaata TaskLine classi
@@ -56,9 +55,9 @@ public class Tasks {
         sumbitButton.setOnAction(event -> {
             for (TextField toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
                 System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
-
-                for (TextField taskHours : toDoHours) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
-                    System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
+            }
+            for (TextField taskHours : toDoHours) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
+                System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
             }
         });
 
