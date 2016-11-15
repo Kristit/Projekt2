@@ -11,8 +11,7 @@ import java.util.ArrayList;
  */
 
 public class TaskLine extends HBox {
-    TextField newNeedToDoTask;
-    TextField newHoursField;
+    TextField needToDoTask;
     TextField hoursField;
     Button removeButton;
     ArrayList<TextField> toDoTasks = new ArrayList<>();
@@ -20,15 +19,15 @@ public class TaskLine extends HBox {
 
 
     TaskLine() {
-        HBox hBox = new HBox();
 
-        newNeedToDoTask = new TextField();//tee sellest tasklists
-        newNeedToDoTask.setPromptText("Write here your task name");
-        newHoursField = new TextField();
+        needToDoTask = new TextField();//tee sellest tasklists
+        needToDoTask.setPromptText("Write here your task name");
+        hoursField = new TextField();
         hoursField.setPromptText("How many hours you need for this task?");
-        removeButton = new Button("Clear");
+        removeButton = new Button("x");
 
-        hBox.getChildren().add(toDoTasks.size() + 1, newNeedToDoTask, toDoHours.size() + 1, newHoursField, removeButton);
+        getChildren().addAll(needToDoTask, hoursField, removeButton);
+
         toDoTasks.add(newNeedToDoTask);// votab sisse newNeedToDoTaski elemendi ja lsiab ArrayListi sisse
         toDoHours.add(newHoursField);
         return newNeedToDoTask;
@@ -44,6 +43,6 @@ public class TaskLine extends HBox {
     }
 
 
-
+/
 
 }

@@ -1,10 +1,12 @@
 package com.example.java;
 
+import com.sun.javafx.scene.text.TextLine;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -14,10 +16,10 @@ import java.util.ArrayList;
  */
 public class Tasks {
 
-    Button sumbitButton;
+    Button saveButton;
     Button addButton;
     Stage stage = new Stage();
-    HBox hBox = new HBox();
+    VBox vBox = new VBox();
     private String courseName;
     private int ap;
 
@@ -35,24 +37,25 @@ public class Tasks {
 
     private void startTaskStage() { //startStage meetod
 
-        Scene scene = new Scene(hBox);
+        Scene scene = new Scene(VBox, 400, 500);
+        VBox vBox= new VBox;
 
         Label total = new Label("List your tasks and working hours!");
-        hBox.getChildren().add(total);
-        TextField toDoTask = new TextField;
-        TextField taskHours = new TextField;
-        new TaskLine();
+        vBox.getChildren().add(total);
+        HBox topLine= new HBox;
+        vBox.getChildren().add(new TaskLine());// uue lapse lisamine??? KUSI JARGI!
+
         addButton = new Button("Add task");
-        sumbitButton = new Button("Save");
-        ArrayList<TextField> toDoTasks = new ArrayList<>();
-        ArrayList<TextField> toDoHours = new ArrayList<>();
+        saveButton = new Button("Save");
+        ArrayList<TextLine> toDoTasks = new ArrayList<>();//when you have a Text Line not a TextField anymore
+
 
         addButton.setOnAction(event -> {
-            TaskLine();// meetodi kutse vaata TaskLine classi
+            vBox.getChildren().add(vBox.getChildren().size()-2)(new TaskLine());// creats new TaskLine()
         });
 
 
-        sumbitButton.setOnAction(event -> {
+        saveButton.setOnAction(event -> {
             for (TextField toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
                 System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
             }
@@ -64,7 +67,7 @@ public class Tasks {
         stage.setScene(scene);// utled et seod Subject tseeni aknaga
         stage.show();//avab akne
 
-        hBox.getChildren().addAll(addButton, sumbitButton);
+        VBox.getChildren().addAll(addButton, sumbitButton);
 
 
     }
