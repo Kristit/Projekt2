@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -14,14 +14,13 @@ import java.util.ArrayList;
  */
 public class Tasks {
 
-    private String courseName;
-    private int ap;
-    ArrayList<TextField> toDoTasks = new ArrayList<>();
     Button sumbitButton;
     Button addButton;
-    Button clearButton;
     Stage stage = new Stage();
-    VBox vbox = new VBox();
+    HBox hBox = new HBox();
+    private String courseName;
+    private int ap;
+
 
 
     /* Vaata public Tasks(String courseName, int ap)  kuidas Sa toid klassisit ule ja miks panid sinna fildideks
@@ -31,59 +30,46 @@ public class Tasks {
         this.courseName = courseName;
         this.ap = ap;
         startTaskStage();
-
-
     }
 
-    private TextField createNewField() {
-        TextField newNeedToDoTask = new TextField();//tee sellest tasklists
-        newNeedToDoTask.setPromptText("Write here your task name");
 
-        vbox.getChildren().add(toDoTasks.size() + 1, newNeedToDoTask);
-        toDoTasks.add(newNeedToDoTask);// votab sisse newNeedToDoTaski elemendi ja lsiab ArrayListi sisse
-        return newNeedToDoTask;//
-    }
 
     private void startTaskStage() { //startStage meetod
 
-        Scene scene = new Scene(vbox, 400, 400);
+        Scene scene = new Scene(hBox);
 
-
-        Label total = new Label("List your tasks ");// 0 positsioonil
-        vbox.getChildren().add(total);
-        createNewField();
+        Label total = new Label("List your tasks and working hours!");
+        hBox.getChildren().add(total);
+        TextField toDoTask =new TextField;
+        TextField taskHours= new TextField;
+        new TaskLine();
         addButton = new Button("Add task");
         sumbitButton = new Button("Save");
-        clearButton = new Button("Clear");
+        ArrayList<TextField> toDoTasks = new ArrayList<>();
+        ArrayList<TextField> toDoHours= new ArrayList<>();
 
         addButton.setOnAction(event -> {
-            createNewField();// meetodi kutse vaata TextField meetodit
+            TaskLine();// meetodi kutse vaata TaskLine classi
         });
 
-        clearButton.setOnAction(event -> {
-            vbox.getChildren().remove(toDoTasks.size());
-            toDoTasks.remove(toDoTasks.size() - 1);
-        });
 
         sumbitButton.setOnAction(event -> {
             for (TextField toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
                 System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
+
+                for (TextField taskHours : toDoHours) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
+                    System.out.println(toDoTask.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
             }
         });
 
         stage.setScene(scene);// utled et seod Subject tseeni aknaga
         stage.show();//avab akne
 
-        vbox.getChildren().addAll(addButton, sumbitButton, clearButton);
+        hBox.getChildren().addAll(addButton, sumbitButton);
 
 
     }
 
-    //SIIA peaks nuud SQL lisama, sest kuidas ma salvestan muidu need erinevad taskid?
-    private void addSql() {
-
-
-    }
 
 }
 
