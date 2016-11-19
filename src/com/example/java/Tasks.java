@@ -34,7 +34,7 @@ public class Tasks {
         startTaskStage();
     }
 
-
+//
     private void startTaskStage() { //startStage meetod
 
         Scene scene = new Scene(VBox, 400, 500);
