@@ -40,20 +40,21 @@ public class Tasks {
         Label total = new Label("List your tasks and working hours!");
         vBox.getChildren().add(total);
         HBox topLine = new HBox();
-        vBox.getChildren().add(new TaskLine());// uue lapse lisamine??? KUSI JARGI!
+
 
         addButton = new Button("Add task");
         saveButton = new Button("Save");
 
         addButton.setOnAction(event -> {
-            addTaskLine();
+            addTaskLine(true);
 
         });
 
 
         saveButton.setOnAction(event -> {
             for (TaskLine toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
-                System.out.println(toDoTask.nameField.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
+                //System.out.println(toDoTask.nameField.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
+                System.out.println(toDoTask.nameField.getText() + ": " + toDoTask.hoursField.getText());
             }
 
         });
@@ -62,18 +63,20 @@ public class Tasks {
         stage.show();//avab akne
 
         vBox.getChildren().addAll(addButton, saveButton);
+        addTaskLine(false);// ???
     }
 
-    private void addTaskLine() {
-        TaskLine newTaskLine = new TaskLine();
+    private void addTaskLine(boolean useXButton) {
+        TaskLine newTaskLine = new TaskLine(useXButton);
 
-        vBox.getChildren().add(vBox.getChildren().size() - 2, new TaskLine());// creats new TaskLine()
-
-
-        newTaskLine.removeButton.setOnAction(event -> {
-            vBox.getChildren().remove(toDoTasks.size());
-            toDoTasks.remove(toDoTasks.size() - 1);
-        });
+        vBox.getChildren().add(vBox.getChildren().size() - 2, newTaskLine);// creats new TaskLine()
+        toDoTasks.add(newTaskLine);
+        if (useXButton) {
+            newTaskLine.removeButton.setOnAction(event -> {
+                vBox.getChildren().remove(newTaskLine);
+                toDoTasks.remove(toDoTasks.size() - 1);
+            });
+        }
     }
 
 }

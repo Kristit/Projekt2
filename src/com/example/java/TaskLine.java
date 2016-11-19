@@ -14,13 +14,14 @@ public class TaskLine extends HBox {
     Button removeButton;
 
 
-    TaskLine() {
+    TaskLine(boolean useXButton) {
 
         nameField = new TextField();//tee sellest tasklists
         nameField.setPromptText("Write here your task name");
         hoursField = new TextField();
         hoursField.setPromptText("How many hours you need for this task?");
         removeButton = new Button("x");
+        removeButton.setDisable(!useXButton);// Boolena not
 
         getChildren().addAll(nameField, hoursField, removeButton);
 
