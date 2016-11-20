@@ -22,7 +22,7 @@ public class Tasks {
     private int ap;
     ArrayList<TaskLine> toDoTasks = new ArrayList<>();//when you have a Text Line not a TextField anymore
 
-
+    //proovikas
 
     /* Vaata public Tasks(String courseName, int ap)  kuidas Sa toid klassisit ule ja miks panid sinna fildideks
     */
