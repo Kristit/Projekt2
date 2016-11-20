@@ -35,7 +35,7 @@ public class Tasks {
 
     private void startTaskStage() { //startStage meetod
 
-        Scene scene = new Scene(vBox, 400, 500);
+        Scene scene = new Scene(vBox, 400, 400);
 
         Label total = new Label("List your tasks and working hours!");
         vBox.getChildren().add(total);

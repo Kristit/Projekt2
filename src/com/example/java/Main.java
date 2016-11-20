@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {//JavaFX start meetod
 
-        new CourseName(); //kaivitan Coursename akna
+        new LogIn(); //kaivitan LogIn akna
 
 
     }
