@@ -1,12 +1,14 @@
 package kt;
 
+import java.util.ArrayList;
+
 /**
  * Created by kristitammet on 26/11/2016.
  */
 public class Course {
-    Integer id=null;
     String name;
     int credits;
+    ArrayList<Task> tasks;
 
     public Course(String name, int credits) {
         this.name = name;
@@ -15,6 +17,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course "+id+": "+name+ " ("+credits+")";
+        return "Course "+name+ " ("+credits+")";
     }
 }
