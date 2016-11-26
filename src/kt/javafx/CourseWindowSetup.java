@@ -1,4 +1,4 @@
-package kt;
+package kt.javafx;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 /**
  * Created by kristitammet on 11/11/2016.
  */
-public class CourseName {
+public class CourseWindowSetup {
 
     // salvestan erinevad muutujad, mida mul voib vaja minna
     private Stage stage = new Stage();
@@ -21,7 +21,7 @@ public class CourseName {
 
     //konstruktor peab olema sam nimega mis klass!
 
-    public CourseName() { // kuida siin see konstruktor on?
+    public CourseWindowSetup() { // kuida siin see konstruktor on?
         startStage();
         setClickEvent();
 
@@ -60,17 +60,13 @@ public class CourseName {
         //selleks,et see save nupp midagi teeks anna kasu .set.OnAction
         saveButton.setOnAction(event -> {
             String courseName = subjectName.getText();// votan textifildist name teksti sisse!
-            int ap= Integer.parseInt(credits.getText());//see string mida numbriks sisestada
-
-
+            int ap = Integer.parseInt(credits.getText());//see string mida numbriks sisestada
 
             System.out.println(courseName); //kasutan seda ekranail kontrollimiseks, et ka snupp tootab
             System.out.println(ap);
 
             new Tasks(courseName, ap);
             stage.hide(); // peaidab ara CourseNami akana
-
-
         });
     }
 }

@@ -1,4 +1,4 @@
-package kt;
+package kt.javafx;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -46,7 +46,7 @@ public class LogIn {
 
         });
         regCourseButton.setOnAction(event -> {
-            new CourseName();
+            new CourseWindowSetup();
             stage1.hide(); // peaidab ara CourseNami akana
 
         });

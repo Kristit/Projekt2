@@ -1,4 +1,4 @@
-package kt;
+package kt.javafx;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import kt.Main;
 
 import java.util.ArrayList;
 
@@ -54,7 +55,8 @@ public class Tasks {
         saveButton.setOnAction(event -> {
             for (TaskLine toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
                 //System.out.println(toDoTask.nameField.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
-                System.out.println(toDoTask.getName() + ": " + toDoTask.getHours()+ " and deadline is: "+ toDoTask.getDeadline());
+                //System.out.println(toDoTask.getName() + ": " + toDoTask.getHours()+ " and deadline is: "+ toDoTask.getDeadline());
+                Main.database.addTask(toDoTask.getTask());
             }
         });
 

@@ -1,16 +1,16 @@
-package kt;
+package kt.javafx;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import kt.Task;
 
 import java.time.LocalDate;
 
 /**
  * Created by kristitammet on 15/11/2016.
  */
-
 public class TaskLine extends HBox {
     private TextField nameField;
     private TextField hoursField;
@@ -27,9 +27,12 @@ public class TaskLine extends HBox {
         removeButton.setDisable(!useXButton);// Boolena not
 
 
-
         getChildren().addAll(nameField, hoursField, deadline, removeButton);
 
+    }
+
+    public Task getTask() {
+        return new Task(0, getName(), getHours(), getDeadline(), 0);
     }
 
     public String getName() {
@@ -37,8 +40,8 @@ public class TaskLine extends HBox {
     }
 
     public Integer getHours() {
-        String hoursString=hoursField.getText();
-        Integer hours=Integer.valueOf(hoursString);
+        String hoursString = hoursField.getText();
+        Integer hours = Integer.valueOf(hoursString);
         return hours;
     }
 
