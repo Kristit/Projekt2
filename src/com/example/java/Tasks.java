@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * Created by kristitammet on 11/11/2016.
  */
 public class Tasks {
-
     Button saveButton;
     Button addButton;
     Stage stage = new Stage();
@@ -21,6 +20,7 @@ public class Tasks {
     private String courseName;
     private int ap;
     ArrayList<TaskLine> toDoTasks = new ArrayList<>();//when you have a Text Line not a TextField anymore
+
 
     //proovikas
 
@@ -35,7 +35,7 @@ public class Tasks {
 
     private void startTaskStage() { //startStage meetod
 
-        Scene scene = new Scene(vBox, 400, 400);
+        Scene scene = new Scene(vBox,400, 200);
 
         Label total = new Label("List your tasks and working hours!");
         vBox.getChildren().add(total);
@@ -54,9 +54,8 @@ public class Tasks {
         saveButton.setOnAction(event -> {
             for (TaskLine toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
                 //System.out.println(toDoTask.nameField.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
-                System.out.println(toDoTask.nameField.getText() + ": " + toDoTask.hoursField.getText());
+                System.out.println(toDoTask.getName() + ": " + toDoTask.getHours()+ " and deadline is: "+ toDoTask.getDeadline());
             }
-
         });
 
         stage.setScene(scene);// utled et seod Subject tseeni aknaga
