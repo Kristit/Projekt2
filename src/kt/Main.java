@@ -4,16 +4,19 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import kt.javafx.LogIn;
 
+import java.util.ArrayList;
+
 
 public class Main extends Application {
-    public static Database database = new Database();
+    public static ArrayList<Course> courses = new ArrayList<>();
 
     public static void main(String[] args) {
-        for (Course c : database.getCourses()) {
+        courses=Database.load();
+        for (Course c : courses) {
             System.out.println("Found course: " + c);
-        }
-        for (Task t : database.getTasks()) {
-            System.out.println("Found task: "+t);
+            for (Task t : c.tasks) {
+                System.out.println("Found task: "+t);
+            }
         }
         launch(args);
     }

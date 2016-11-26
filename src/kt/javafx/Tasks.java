@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import kt.Database;
+import kt.Main;
 
 import java.util.ArrayList;
 
@@ -53,7 +54,7 @@ public class Tasks {
 
 
         saveButton.setOnAction(event -> {
-            Database.save(courses);
+            Database.save(Main.courses);
             //for (TaskLine toDoTask : toDoTasks) {// toDoTasks ArrayList iterable- saad koikide elementide poole poorduda
                 //System.out.println(toDoTask.nameField.getText()); // Trukib iga uksiku TextFieldi sisu systemouti
                 //System.out.println(toDoTask.getName() + ": " + toDoTask.getHours()+ " and deadline is: "+ toDoTask.getDeadline());
