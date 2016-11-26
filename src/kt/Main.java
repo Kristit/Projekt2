@@ -1,4 +1,4 @@
-package com.example.java;
+package kt;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

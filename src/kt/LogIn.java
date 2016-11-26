@@ -1,4 +1,4 @@
-package com.example.java;
+package kt;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
